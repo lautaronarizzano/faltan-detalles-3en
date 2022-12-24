@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../../ItemDetail/ItemDetail'
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import Loading from '../../Loading/Loading'
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
@@ -35,7 +36,7 @@ const ItemDetailContainer = () => {
         <section>
             <div className={loading? 'itemDetail' : 'product'}>
                 {loading?
-                <h2 className='loading'>loading...</h2>
+                <Loading />
                 :
             <ItemDetail product={product} />
             }

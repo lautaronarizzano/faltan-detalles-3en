@@ -6,6 +6,7 @@
     /* border: 2px solid black; */
     margin:  1.6rem;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    width: 387px !important;
 }
 .card{
     margin: 1rem;
@@ -23,7 +24,8 @@
 .card-footer{
     margin-top: 2rem;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 .itemDetail-btn{
     font-size: 1.5em;

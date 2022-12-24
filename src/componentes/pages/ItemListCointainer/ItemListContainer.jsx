@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ItemList from '../../ItemList/ItemList'
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 import { useParams } from 'react-router-dom'
+import Loading from '../../Loading/Loading'
 import './ItemListContainer.css'
 
 
@@ -36,8 +37,7 @@ const ItemListContainer = () => {
             <section className='container-burger'>\
                 {
                     loading ?
-                        <h2 className='loading'>loading...
-                        </h2>
+                        <Loading />
                         :
                         <ItemList products={products} />
                 }

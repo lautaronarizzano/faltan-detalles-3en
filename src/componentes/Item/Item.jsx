@@ -12,10 +12,10 @@ const Item = ({ product }) => {
                 </div>
                 <div className="card-body">
                     <img src={product.img} alt={product.nombre} className='img' />
-                    <h4 className='price-product'>${product.precio}</h4>
                 </div>
 
                 <div className="card-footer">
+                <h4 className='price-product'>${product.precio}</h4>
                     <Link to={`/item/${product.id}`}>
                         <button className="itemDetail-btn">
                             detalle del producto

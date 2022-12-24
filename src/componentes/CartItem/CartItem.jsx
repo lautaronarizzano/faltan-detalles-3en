@@ -5,7 +5,6 @@ const CartItem = ({ product }) => {
 
   const { deleteProduct } = useCartContext()
 
-
   return (
     <tr className="itemCart">
       <th>

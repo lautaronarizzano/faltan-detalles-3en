@@ -1,12 +1,13 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
-import React from 'react'
 import { useState } from 'react'
 import { useCartContext } from '../../Context/CartContext'
 import './FormOrder.css'
 
 const FormOrder = () => {
 
-    const { cartList, clear, totalPrice, isClear, handleIsClear } = useCartContext()
+    const { cartList, totalPrice } = useCartContext()
+
+    const [ send, setSend ] = useState()
 
     const [dataForm, setFormData] = useState({
         name: '',
@@ -34,8 +35,7 @@ const FormOrder = () => {
         addDoc(queryCollection, order)
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
-            // .then(() =>  )
-        // .then(() => clear())
+            .then(() => clear())
 
         //actualizar
         // const queryDoc = doc(db, 'productos', )
@@ -79,7 +79,7 @@ const FormOrder = () => {
                     required
                 />
                 <input
-                    type="text"
+                    type="number"
                     onChange={handleOnChange}
                     name='phone'
                     value={dataForm.phone}
@@ -102,18 +102,13 @@ const FormOrder = () => {
                     placeholder="ingrese su email nuevamente"
                     required
                 />
-            {
-                dataForm.email == dataForm.emailConfirmation && dataForm.email.includes('@')?
-                <button>Terminar Compra</button>
-                :
-                <h4 className='error'>Los emails no coinciden o no son un email valido</h4>
-            }
-            {
-                typeof dataForm.phone !== 'number'?
-                <button>Terminar Compra</button>
-                :
-                <h4 className='error'>El numero agregado no es un numero</h4>
-            }
+                {
+                    dataForm.email == dataForm.emailConfirmation && dataForm.email.includes('@') ?
+                        <button>Terminar Compra</button>
+                        :
+                        <h4 className='error'>Los emails no coinciden o no son un email valido</h4>
+
+                }
             </form>
 
 

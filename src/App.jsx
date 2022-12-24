@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./componentes/NavBar/NavBar.css";
 import { CartContextProvider } from "./Context/CartContext";
 import CartContainer from "./componentes/pages/CartContainer/CartContainer";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 function App() {

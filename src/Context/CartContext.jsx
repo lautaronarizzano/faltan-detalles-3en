@@ -8,11 +8,6 @@ export const CartContextProvider = ({ children }) => {
 
     const [cartList, setCartList] = useState([])
 
-    const [isClear, setIsClear] = useState(false)
-
-    const handleIsClear = () => {
-        setIsClear(true)
-    }
 
     //agregar carrito y eliminar duplicados
     const addCart = (product) =>{
@@ -38,7 +33,7 @@ export const CartContextProvider = ({ children }) => {
 
     //vaciar carrito
     const clear = () =>{
-        isClear && setCartList([])
+        setCartList([])
     }
 
     
@@ -51,13 +46,11 @@ export const CartContextProvider = ({ children }) => {
             return(
                 <CartContext.Provider value={{
                     cartList,
-                    isClear,
                     addCart,
                     deleteProduct,
                     clear,
                     totalPrice,
                     cantidadTotal,
-                    handleIsClear
                 }}>
             {children}
         </CartContext.Provider>
