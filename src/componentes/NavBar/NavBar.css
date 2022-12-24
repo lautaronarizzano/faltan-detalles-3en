@@ -1,0 +1,35 @@
+.header{
+    background-color:  #df4726 ;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+.headerNav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 12rem;
+}
+.headerNavH2{
+    font-size: 3.5rem;
+    color: white;
+}
+.linkHome{
+    text-decoration: none;
+    color: white;
+}
+.headerNavUl{
+    display: flex;
+    gap: 3rem;
+    font-size: 2em;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+.headerNavUlLi{
+color: white;
+}
+.headerNavUlLiA{
+    color: white;
+    text-decoration: none;
+}

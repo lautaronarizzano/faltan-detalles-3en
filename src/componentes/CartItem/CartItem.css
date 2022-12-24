@@ -1,0 +1,29 @@
+
+th{
+    align-self: center;
+}
+.cartItemImg{
+    width: 250px;
+}
+.nameCart{
+    font-size: 2.3rem;
+}
+.precioCart{
+    font-size: 2rem;
+}
+.btnCantidad{
+    width: 2.5rem;
+}
+.cantidad{
+    width: 8rem;
+    margin-right: .5rem;
+    margin-left: .5rem;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

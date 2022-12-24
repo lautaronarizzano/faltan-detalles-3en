@@ -1,0 +1,10 @@
+label > input{
+    width: 50px;
+}
+.card-body{
+    display: flex;
+    gap: 2rem;
+}
+.card-body > button{
+    width: 2rem;
+}

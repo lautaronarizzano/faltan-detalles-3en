@@ -1,0 +1,19 @@
+.carrito{
+    display: flex;
+}
+.carritoImg{
+    width: 28px;
+}
+.carritoDiv{
+    color: white;
+    border-radius: 40px;
+    border: 2px solid red;
+    background-color: red;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    align-self: flex-end;
+}

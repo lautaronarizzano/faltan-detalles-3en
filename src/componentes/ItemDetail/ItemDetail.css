@@ -1,0 +1,21 @@
+.itemDetailContenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+.itemDetail{
+    display: flex;
+    align-items: center;
+}
+.img-container > img{
+    width: 55rem;
+}
+.itemDetail > div{
+    width: 50rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
