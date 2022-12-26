@@ -8,11 +8,10 @@ export const CartContextProvider = ({ children }) => {
 
     const [cartList, setCartList] = useState([])
 
-
     //agregar carrito y eliminar duplicados
     const addCart = (product) =>{
-        const idx = cartList.findIndex(prod => prod.id == product.id)
 
+        const idx =  cartList.findIndex(prod => prod.id == product.id)
 
         if (idx !== -1) {
             cartList[idx].cant += product.cant
@@ -22,7 +21,6 @@ export const CartContextProvider = ({ children }) => {
         }
 
     }
-
 
     //eliminar producto
     const deleteProduct = (product) => {

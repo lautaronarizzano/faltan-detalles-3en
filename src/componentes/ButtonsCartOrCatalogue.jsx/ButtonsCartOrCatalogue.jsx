@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../Context/CartContext";
 import './ButtonsCartOrCatalogue.css'
+import { ToastContainer, toast } from 'react-toastify';
 
 const InputCount= ()=> {
 
@@ -31,12 +33,25 @@ const ButtonCount= ({handleInter})=> {
 
 const ButtonsCartOrCatalogue = ({handleOnAdd}) => { 
 
-
     const [inputType, setInputType ] = useState('button')
+
+    const {toastAdded} = useCartContext()
+
+    const notify = () => toast.success('Se ha agregado el producto al carrito', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });;
 
     const handleInter=()=>{
         setInputType('input')
         handleOnAdd()
+        notify()
     }
     
     return (
@@ -47,6 +62,7 @@ const ButtonsCartOrCatalogue = ({handleOnAdd}) => {
                 : 
                     <InputCount />
             }
+            <ToastContainer />
         </div>
     )
 }

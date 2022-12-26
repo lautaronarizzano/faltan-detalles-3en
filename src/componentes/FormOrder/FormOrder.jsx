@@ -1,13 +1,12 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { useState } from 'react'
 import { useCartContext } from '../../Context/CartContext'
+import Swal from 'sweetalert2'
 import './FormOrder.css'
 
 const FormOrder = () => {
 
     const { cartList, totalPrice } = useCartContext()
-
-    const [ send, setSend ] = useState()
 
     const [dataForm, setFormData] = useState({
         name: '',
@@ -35,7 +34,8 @@ const FormOrder = () => {
         addDoc(queryCollection, order)
             .then(resp => console.log(resp))
             .catch(err => console.log(err))
-            .then(() => clear())
+            .then(factura)
+            // .then(() => clear())
 
         //actualizar
         // const queryDoc = doc(db, 'productos', )
@@ -65,6 +65,13 @@ const FormOrder = () => {
         })
     }
 
+    const receipt = () => Swal.fire({
+        icon: 'success',
+        title: `Gracias por su compra ${dataForm.name}`,
+        text: `Su id de compra es: \n
+        nos contactaremos a tu email para realizar el envio, conserve su id de compra.
+        cualquier duda la puede consultar a +412312321`,
+    })
 
     return (
         <div className='form-container'>
@@ -110,7 +117,6 @@ const FormOrder = () => {
 
                 }
             </form>
-
 
         </div>
     )

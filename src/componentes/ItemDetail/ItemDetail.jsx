@@ -9,6 +9,7 @@ const ItemDetail = ({product}) => {
     const onAdd = (cant) => {
 
         addCart( { ...product, cant } )
+
     }
 
     return (

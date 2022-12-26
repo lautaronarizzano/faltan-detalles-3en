@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
+import { useCartContext } from '../../Context/CartContext'
 import ButtonsCartOrCatalogue from '../ButtonsCartOrCatalogue.jsx/ButtonsCartOrCatalogue'
 import './ItemCount.css'
 
 const ItemCount = ({initial = 1, stock = 10, onAdd}) => {
     const [count, setCount] = useState(initial)
+
+    const {cartList} = useCartContext()
 
     const addQuantity = () => {
         if (count < stock) {
@@ -20,6 +23,9 @@ const ItemCount = ({initial = 1, stock = 10, onAdd}) => {
 
     const handleOnAdd = () =>{
         onAdd(count)
+        const cartStringify = JSON.stringify(cartList)
+
+        localStorage.setItem( "cart", cartStringify )
     }
     return (
         <div className='card'>

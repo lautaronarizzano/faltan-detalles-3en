@@ -2,10 +2,11 @@ import NavBar from "./componentes/NavBar/Navbar";
 import ItemListContainer from "./componentes/pages/ItemListCointainer/ItemListContainer";
 import ItemDetailContainer from "./componentes/pages/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import "./componentes/NavBar/NavBar.css";
 import { CartContextProvider } from "./Context/CartContext";
 import CartContainer from "./componentes/pages/CartContainer/CartContainer";
+// import "./componentes/NavBar/NavBar.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 
 function App() {

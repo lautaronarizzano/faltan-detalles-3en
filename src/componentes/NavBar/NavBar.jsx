@@ -1,10 +1,10 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
-import './NavBar.css'
 import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import './NavBar.css'
 
 const NavBar = () => {
 
@@ -35,7 +35,7 @@ const NavBar = () => {
                     <Link to='/category/Complementos'>
                         <li className='headerNavUlLi'>Complementos</li>
                     </Link> */}
-                    {navLinks.map(navLink => <Link to={`/category/${navLink.categoryId}`}><li className='headerNavUlLi'>{navLink.name}</li></Link>)}
+                    {navLinks.map(navLink => <Link key={navLink.id} to={`/category/${navLink.categoryId}`}><li key={navLink.id} className='headerNavUlLi'>{navLink.name}</li></Link>)}
                 </ul>
                 <Link to='/cart' >
                     <CartWidget/>
