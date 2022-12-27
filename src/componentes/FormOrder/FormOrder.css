@@ -1,8 +1,20 @@
+.container-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:   #f2f5f6  ;
+}
 .form-container{
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 .form-container > h2{
     margin: 2rem 0;
+    font-size: 2.5em;
 }
 .form{
     display: flex;
@@ -10,10 +22,22 @@
     gap: 1rem;
     width: 23rem;
 }
+.form > input{
+    font-size: 1.4em;
+    width: 25rem;
+    height: 3rem;
+}
 .form > button{
     margin-top: 2rem;
 }
 .error{
     color: red;
-    font-size: 1.5em;
+    font-size: 1.7em;
+    width: 40rem;
+    margin-top: 2rem;
+}
+.buy{
+    font-size: 1.7em;
+    width: 120%;
+    
 }

@@ -1,5 +1,6 @@
 import Spinner from 'react-bootstrap/Spinner';
 
+//traigo de react-bootstrap un loading
 function Loading() {
     return (
         <Spinner animation="border" role="status">

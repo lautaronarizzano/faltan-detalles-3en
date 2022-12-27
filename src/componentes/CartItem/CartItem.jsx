@@ -10,13 +10,13 @@ const CartItem = ({ product }) => {
       <th>
         <img src={product.img} alt="" className="cartItemImg" />
       </th>
-      <th className="nameCart">{product.nombre}</th>
+      <th className="nameCart">{product.name}</th>
       <th>
         <div>
           <input type="number" value={ product.cant } className="cantidad" />
         </div>
       </th>
-      <th className="precioCart">$ {product.precio * product.cant}</th>
+      <th className="precioCart">$ {product.price * product.cant}</th>
       <th>
         <button onClick={() => deleteProduct(product)}>eliminar</button>
       </th>

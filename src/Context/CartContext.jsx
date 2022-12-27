@@ -35,10 +35,11 @@ export const CartContextProvider = ({ children }) => {
     }
 
     
+//calcular precio total
+    const totalPrice = () => cartList.reduce((counter, producto) => counter += (producto.price * producto.cant) , 0)
 
-    const totalPrice = () => cartList.reduce((contador, producto) => contador += (producto.precio * producto.cant) , 0)
-
-    const cantidadTotal = () => cartList.reduce((contador, producto) => contador += producto.cant, 0)
+//calcular cantidad total
+    const cantidadTotal = () => cartList.reduce((counter, producto) => counter += producto.cant, 0)
 
             
             return(

@@ -1,15 +1,14 @@
-import React from 'react'
-import CartWidget from '../CartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { collection, getDocs, getFirestore } from 'firebase/firestore'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
 
 const NavBar = () => {
 
     const [ navLinks, setNavLinks ] = useState([])
 
+//traigo las categorias para hacer dinamico el navbar
     useEffect(() => {
 
         const db = getFirestore()
@@ -26,15 +25,6 @@ const NavBar = () => {
                     <h2 className='headerNavH2'>Burger Station</h2>
                 </Link>
                 <ul className='headerNavUl'>
-                    {/* <Link to='/category/Hamburguesas'>
-                        <li className='headerNavUlLi'>Hamburguesas</li>
-                    </Link>
-                    <Link to='/category/Bebidas'>
-                        <li className='headerNavUlLi'>Bebidas</li>
-                    </Link>
-                    <Link to='/category/Complementos'>
-                        <li className='headerNavUlLi'>Complementos</li>
-                    </Link> */}
                     {navLinks.map(navLink => <Link key={navLink.id} to={`/category/${navLink.categoryId}`}><li key={navLink.id} className='headerNavUlLi'>{navLink.name}</li></Link>)}
                 </ul>
                 <Link to='/cart' >

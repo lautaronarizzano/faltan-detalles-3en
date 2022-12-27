@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../../Context/CartContext'
 import { Cart } from '../../Cart/Cart'
-import FormOrder from '../../FormOrder/FormOrder'
 import Loading from '../../Loading/Loading'
 import './CartContainer.css'
 
@@ -12,6 +11,7 @@ const CartContainer = () => {
 
     const { cartList } = useCartContext()
 
+//creo timer para que dure el loading
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
@@ -35,9 +35,6 @@ const CartContainer = () => {
                     <section className='section-cart'>
                         <div>
                             <Cart />
-                        </div>
-                        <div>
-                            <FormOrder />
                         </div>
                     </section>
 

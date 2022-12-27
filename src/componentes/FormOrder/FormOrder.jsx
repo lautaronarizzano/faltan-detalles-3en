@@ -1,63 +1,34 @@
 import { addDoc, collection, getFirestore } from 'firebase/firestore'
 import { useState } from 'react'
 import { useCartContext } from '../../Context/CartContext'
-import Swal from 'sweetalert2'
 import './FormOrder.css'
+import { Link } from 'react-router-dom'
 
 const FormOrder = () => {
-
-    const { cartList, totalPrice } = useCartContext()
-
+    const { cartList, totalPrice, clear } = useCartContext()
     const [dataForm, setFormData] = useState({
         name: '',
         phone: '',
         email: '',
         emailConfirmation: ''
     })
-
+    const [order, setOrder]=useState('')
 
     const addOrder = (e) => {
-
         e.preventDefault()
-
-        const order = {}
-
-        order.buyer = dataForm
-        order.precio = totalPrice()
-        order.items = cartList.map(product => ({ id: product.id, nombre: product.nombre, precio: product.precio, cantidad: product.cant }))
-
+        let order = {
+            buyer : dataForm,
+            precio : totalPrice(),
+            items :cartList.map(product => ({ id: product.id, nombre: product.nombre, precio: product.precio, cantidad: product.cant }))
+        }
         const db = getFirestore()
         const queryCollection = collection(db, 'orders')
-
-
-        //agregar orden
+        
         addDoc(queryCollection, order)
-            .then(resp => console.log(resp))
+            .then(resp => setOrder(resp.id))
             .catch(err => console.log(err))
-            .then(factura)
-            // .then(() => clear())
-
-        //actualizar
-        // const queryDoc = doc(db, 'productos', )
     }
-    const factura = () => {
-        console.log('ola')
-        return (
-            <div>
-                <h2>Gracias por su compra {dataForm.name}</h2>
-
-                usted a comprado: {cartList.map(prod => {
-                    <div>
-                        <p>{prod.name}</p>
-                        <p>x{prod.cant}</p>
-                    </div>
-                })}
-                <h3>con un precio total de {totalPrice()}</h3>
-            </div>
-        )
-    }
-
-
+    
     const handleOnChange = (e) => {
         setFormData({
             ...dataForm,
@@ -65,16 +36,26 @@ const FormOrder = () => {
         })
     }
 
-    const receipt = () => Swal.fire({
-        icon: 'success',
-        title: `Gracias por su compra ${dataForm.name}`,
-        text: `Su id de compra es: \n
-        nos contactaremos a tu email para realizar el envio, conserve su id de compra.
-        cualquier duda la puede consultar a +412312321`,
-    })
 
     return (
-        <div className='form-container'>
+    <>
+            {order 
+            ? <div>
+                <h2>Gracias por su compra {dataForm.name}</h2>
+                <h2>Su nuemero de orden es: {order}</h2>
+
+                usted a comprado: {cartList.map(prod => {
+                    return(
+                        <div>
+                            <p>{prod.nombre}</p>
+                            <p>x{prod.cant}</p>
+                        </div>
+                    )
+                })}
+                <h3>con un precio total de {totalPrice()}</h3>
+            <Link onClick={clear} to='/'>Volver</Link>
+            </div>
+            : <div className='form-container'>
             <h2>Ingrese sus datos para poder contactarnos</h2>
             <form onSubmit={addOrder} className='form' >
                 <input
@@ -114,11 +95,11 @@ const FormOrder = () => {
                         <button>Terminar Compra</button>
                         :
                         <h4 className='error'>Los emails no coinciden o no son un email valido</h4>
-
                 }
             </form>
 
-        </div>
+        </div>}
+    </>
     )
 }
 

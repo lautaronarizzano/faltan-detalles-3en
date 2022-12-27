@@ -1,31 +1,27 @@
-import React from 'react'
 import { useState } from 'react'
-import { useCartContext } from '../../Context/CartContext'
 import ButtonsCartOrCatalogue from '../ButtonsCartOrCatalogue.jsx/ButtonsCartOrCatalogue'
 import './ItemCount.css'
 
 const ItemCount = ({initial = 1, stock = 10, onAdd}) => {
     const [count, setCount] = useState(initial)
 
-    const {cartList} = useCartContext()
-
+    //creo funcion para sumar cantidad
     const addQuantity = () => {
         if (count < stock) {
             setCount(count + 1)
         }
     }
 
+    //creo funcion para restar cantidad
     const subtractQuantity = () => {
         if (count > initial) {
             setCount(count - 1)
         }
     }
 
+    //creo funcion para ejecutar añadir al carrito
     const handleOnAdd = () =>{
         onAdd(count)
-        const cartStringify = JSON.stringify(cartList)
-
-        localStorage.setItem( "cart", cartStringify )
     }
     return (
         <div className='card'>

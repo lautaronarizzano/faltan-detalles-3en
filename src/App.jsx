@@ -4,7 +4,7 @@ import ItemDetailContainer from "./componentes/pages/ItemDetailContainer/ItemDet
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartContextProvider } from "./Context/CartContext";
 import CartContainer from "./componentes/pages/CartContainer/CartContainer";
-// import "./componentes/NavBar/NavBar.css";
+import FormOrder from './componentes/FormOrder/FormOrder';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
@@ -22,6 +22,7 @@ return (
             <Route path="/item/:productId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartContainer />} />
             <Route path="*" element={<Navigate to="/" />} />
+            <Route path='/checkout' element={<FormOrder/>}/>
         </Routes>
 
         </CartContextProvider>

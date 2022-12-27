@@ -12,22 +12,22 @@ const ItemDetailContainer = () => {
 
     const { productId } = useParams()    
 
+//crear un timer para que dure el loading
     const timer = () => {
         setTimeout(() => {
             setLoading(false)
         }, 1500);
     }
 
-        
+//traigo el producto para el detalle
     useEffect(() => {
         const db = getFirestore()
-        const queryDoc = doc(db, 'productos', productId)
+        const queryDoc = doc(db, 'products', productId)
         getDoc(queryDoc)
         .then(resp => setProduct({id:resp.id, ...resp.data()}))
         .catch(err => console.log(err))
         .finally(() => timer())
 
-        
     }, [])
 
     

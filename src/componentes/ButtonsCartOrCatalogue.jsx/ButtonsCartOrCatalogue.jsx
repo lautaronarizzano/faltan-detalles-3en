@@ -35,8 +35,6 @@ const ButtonsCartOrCatalogue = ({handleOnAdd}) => {
 
     const [inputType, setInputType ] = useState('button')
 
-    const {toastAdded} = useCartContext()
-
     const notify = () => toast.success('Se ha agregado el producto al carrito', {
         position: "bottom-right",
         autoClose: 3000,
