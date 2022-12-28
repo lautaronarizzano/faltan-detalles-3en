@@ -1,8 +1,18 @@
-.itemDetail{
-    display: flex;
+.detail-loading{
+    display: flex; 
     flex-wrap: nowrap;
     width: 100%;
     justify-content: center;
     margin-top: 5rem;
     align-items: center;
-}
+    
+} 
+.product{
+    display: flex; 
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5rem;
+    align-items: center;
+    
+} 

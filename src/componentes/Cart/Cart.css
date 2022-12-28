@@ -1,11 +1,12 @@
 .cart{
     background-color: white;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
-    width: 84rem;
+    width: 90rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 5rem 0;
 }
 .cartTable{
     width: 100%;
@@ -13,6 +14,7 @@
 }
 th{
     font-size: 2em;
+    text-align: center;
 }
 .cart-footer{
     display: flex;
@@ -28,4 +30,9 @@ th{
     margin-right: 2rem;
     margin-bottom: 2rem;
     font-size: 2em;
+}
+.get-order{
+    width: 12rem;
+    height: 4rem;
+    font-size: 1.5em;
 }

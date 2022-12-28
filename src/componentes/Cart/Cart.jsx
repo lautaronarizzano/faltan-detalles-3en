@@ -29,7 +29,7 @@ export const Cart = () => {
             <button onClick={clear}>Vaciar carrito</button>
                 <h3>Precio Total: ${totalPrice()}</h3>
             </div>
-            <button onClick={() => navegar('/checkout')}>Finalizar compra</button>
+            <button onClick={() => navegar('/checkout')} className='get-order'>Finalizar compra</button>
         </div>
 
 

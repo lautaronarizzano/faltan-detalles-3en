@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCartContext } from "../../Context/CartContext";
-import './ButtonsCartOrCatalogue.css'
 import { ToastContainer, toast } from 'react-toastify';
+import './ButtonsCartOrCatalogue.css'
 
+//creo funcion que permite elegir entre ir al carrito o ir al catalogo
 const InputCount= ()=> {
 
     return (
         <div className="intercambiabilidad">
             <Link to='/cart' >
                 <button  
-                >Ir al Cart o Terminar compra</button>
+                >Ir al Carrito</button>
             </Link>
             <Link to='/' >
                 <button 
@@ -21,7 +21,7 @@ const InputCount= ()=> {
 }
 
 
-
+//creo boton de agregar al carrito
 const ButtonCount= ({handleInter})=> {
 
     return <button 
@@ -31,10 +31,12 @@ const ButtonCount= ({handleInter})=> {
 
 }
 
+//creo funcion que agrega al carrito y cambia los botones
 const ButtonsCartOrCatalogue = ({handleOnAdd}) => { 
 
     const [inputType, setInputType ] = useState('button')
 
+//declaro toast de toastify
     const notify = () => toast.success('Se ha agregado el producto al carrito', {
         position: "bottom-right",
         autoClose: 3000,

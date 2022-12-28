@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
 
     return (
         <section>
-            <div className={loading? 'itemDetail' : 'product'}>
+            <div className={loading? 'detail-loading' : 'product'}>
                 {loading?
                 <Loading />
                 :
