@@ -8,6 +8,7 @@ const FormOrder = () => {
 
     const { cartList, totalPrice } = useCartContext()
 
+
     //creo estado para poner lso datos del formulario
     const [dataForm, setFormData] = useState({
         name: '',
